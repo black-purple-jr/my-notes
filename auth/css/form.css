@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-main-color: #121212;
+  --first-layer-background: #1e1e1e;
+  --second-layer-background: #272727;
+  --third-layer-background: #303030;
+  --foreground-main-color: #dddddd;
+  --foreground-secondary-color: #a0a0a0;
+  --foreground-third-color: #606060;
+  --main-neutral-color: #838383;
+  --border-color: #2a2a2a;
+  --brand-main-color: #5b5eeb;
+  --default-font: "Geist", sans-serif;
+}
+
+body {
+  font-family: var(--default-font);
+  background: var(--background-main-color);
+  color: var(--foreground-main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+
+}
+
+body::selection {
+  background-color: rgba(91, 94, 235, 0.25);
+}
+
+form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  border: .1rem solid var(--main-neutral-color);
+  border-radius: 30px;
+  background-color: var(--second-layer-background);
+}
+
+form h3 {
+  font-size: 1.6em;
+  font-weight: 300;
+  text-align: center;
+  color: var(--foreground-main-color);
+}
+
+form input {
+  font-size: 1.01em;
+  border-radius: 8px;
+  background-color: var(--third-layer-background);
+  color: var(--foreground-main-color);
+}
+
+form .wrapper {
+  height: auto;
+  margin-top: -3px;
+  position: relative;
+}
+
+.wrapper svg{
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}
+
+.wrapper .mini-wrapper{
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .mini-wrapper input{
+  padding-right: 40px;
+}
+
+.hidePassword{
+  display: none;
+}
+
+form .wrapper:last-of-type {
+  margin-bottom: 15px;
+}
+
+form label {
+  width: max-content;
+  font-size: 1.1em;
+  color: var(--main-neutral-color);
+  transition: all ease-in-out .35s;
+  position: relative;
+  top: 30px;
+  left: 10px;
+  -webkit-user-select: none;
+  user-select: none;
+
+}
+
+label.focus {
+  background-color: var(--second-layer-background);
+  color: var(--brand-main-color);
+  font-size: .85em;
+  padding: 0 3px;
+  transition: all ease-in-out .35s;
+  top: 6px;
+}
+
+input.focus {
+  outline: 2px solid var(--brand-main-color);
+  background-color: var(--second-layer-background);
+}
+
+input{
+  caret-color: var(--brand-main-color);
+}
+
+form input,
+form button {
+  height: 40px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+form button {
+  background-color: var(--brand-main-color);
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: var(--foreground-main-color);
+  margin: 15px 0;
+  transition: all ease-in-out .35s;
+}
+
+form button:hover {
+  background-color: #6669ee;
+}
+
+form p {
+  text-align: center;
+  color: var(--foreground-main-color);
+}
+
+form a,
+form a:visited,
+form a:active {
+  color: var(--brand-main-color);
+}
+
+.recover {
+  margin-top: 5px;  
+  position: relative;
+  right: -220px;
+  width: 120px;
+}
+
+p.errors {
+  color: #ff343e;
+  margin: 4px 0 -8px 8px;
+  text-align: start;
+}
+
+span svg {
+  margin: 0;
+  padding-top: 2px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--foreground-main-color);
+  /* Your desired text color */
+  -webkit-box-shadow: 0 0 0px 1000px var(--second-layer-background) inset;
+  /* Your desired background color */
+  transition: background-color 5000s ease-in-out 0s;
+  /* Prevents background color flashes */
+}
+
+/* Standard selector for modern browsers */
+input:autofill {
+  filter: none;
+  /* Required for Firefox to respect custom styles */
+}
+
+button[type="submit"]:disabled {
+  background-color: #838383;
+}
+
+button[type="submit"]:hover:disabled {
+  background-color: #838383;
+}
+
+@media (max-width: 780px) {
+  body {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    background-color: var(--second-layer-background);
+  }
+
+  form {
+    border: none;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  form h3 {
+    /* font-size: 2em; */
+    margin-bottom: .6rem;
+  }
+
+  .recover {
+    position: relative;
+    right: -50vw;
+  }
+}
+
+@keyframes onAutoFillStart {
+  from {}
+
+  to {}
+}
+
+@keyframes onAutoFillCancel {
+  from {}
+
+  to {}
+}
+
+input:-webkit-autofill {
+  animation-name: onAutoFillStart;
+}
+
+input:not(:-webkit-autofill) {
+  animation-name: onAutoFillCancel;
+}

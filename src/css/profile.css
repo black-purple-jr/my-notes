@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --background-main-color: #121212;
+  --first-layer-background: #1e1e1e;
+  --second-layer-background: #303030;
+  --drawer-background: #1e1e1ef7;
+  --foreground-main-color: #dddddd;
+  --foreground-secondary-color: #a0a0a0;
+  --foreground-third-color: #606060;
+  --border-color: #2a2a2a;
+  --brand-main-color: #5b5eeb;
+  --default-font: "Geist", sans-serif;
+  --danger-color: #cf272f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--default-font);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Geist", sans-serif;
+  background-color: var(--background-main-color);
+  color: var(--foreground-main-color);
+  transition: all ease-in-out .35s;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+body::selection {
+  background-color: rgba(91, 94, 235, 0.25);
+}
+
+header {
+  width: 62em;
+  margin: auto;
+  padding: 1rem 0 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 11;
+  background-color: rgba(18, 18, 18, 0.87);
+  transition: all ease-in-out .35s;
+  height: 100px;
+}
+
+header a.back {
+  color: var(--brand-main-color);
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: 1.1em;
+  gap: .8em;
+}
+
+header h1 {
+  font-weight: 300;
+  font-size: 2.15em;
+  width: max-content;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+/* header a h1{
+  font-weight: 50;
+} */
+
+header a {
+  text-decoration: none;
+  color: var(--foreground-main-color);
+}
+
+main {
+  width: 62em;
+  margin: auto;
+}
+
+.pfp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pfp img {
+  width: 60px;
+  height: 60px;
+}
+
+.title {
+  color: var(--brand-main-color);
+  padding: 0 5px;
+  width: max-content;
+  transform: translate(30px, 29px);
+  background-color: var(--first-layer-background);
+  font-weight: 400;
+  font-size: 1.7rem;
+  margin-top: -30px;
+}
+
+.general-info {
+  border: 1px solid var(--brand-main-color);
+  border-radius: .7rem;
+  padding: 1.7rem;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.box {
+  border: 1px solid var(--brand-main-color);
+  border-radius: .7rem;
+  padding: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info .username {
+  font-size: 1.2rem;
+}
+
+.info .email {
+  font-size: 1.1em;
+  color: var(--brand-main-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: var(--first-layer-background);
+  padding: 20px;
+  border-radius: calc(.7rem + 20px);
+  margin-bottom: 30px;
+}
+
+.box .row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  row-gap: 15px;
+  width: 100%;
+}
+
+form button[type="submit"] {
+  width: 200%;
+  height: 35px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--brand-main-color);
+  font-size: 1.1em;
+}
+
+.box .row input:not(input[type="file"]) {
+  width: 100%;
+  height: 45px;
+  border-radius: 12px;
+  background-color: var(--second-layer-background);
+  border: none;
+  outline: none;
+  color: var(--foreground-main-color);
+  font-size: 1.1em;
+  padding: 15px;
+
+}
+
+.box .row label {
+  font-size: 1.2em;
+}
+
+.box .row input[type="file"] {
+  font-size: 1.1em;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--danger-color);
+  text-decoration: none;
+  border: 1px solid var(--danger-color);
+  border-radius: 8px;
+  flex: 1;
+  padding: 8px 0;
+  font-size: 1.1em;
+  transition: all ease-in-out .25s;
+}
+
+.actions a:hover{
+  background-color: rgba(207, 39, 47, .14);
+}
+
+.box .row input[type="file"]::file-selector-button {
+  background-color: var(--brand-main-color);
+  border: none;
+  padding: .4rem 1.5rem;
+  border-radius: .4rem;
+}
+
+input:not([type="file"]):-webkit-autofill,
+input:not([type="file"]):-webkit-autofill:hover,
+input:not([type="file"]):-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--foreground-main-color);
+  -webkit-box-shadow: 0 0 0px 1000px var(--second-layer-background) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

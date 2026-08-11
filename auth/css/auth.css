@@ -1,0 +1,404 @@
+@import url('../../styles/root.css');
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  background-color: var(--background-main-color);
+  color: var(--foreground-main-color);
+}
+
+.container {
+  width: 52rem;
+  height: 34rem;
+  position: relative;
+  background-color: var(--first-layer-background);
+  border-radius: 2rem;
+  box-shadow: 0 0 30px 60px rgba(0, 0, 0, .2);
+  overflow: hidden;
+  margin: 0 0;
+}
+
+.form-box {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  transition: right .35s ease-in-out .65s, bottom .35s ease-in-out .65s;
+  z-index: 3;
+}
+
+.container.active .form-box {
+  right: 50%;
+}
+
+.form-box.register {
+  visibility: hidden;
+}
+
+.container.active .form-box.register {
+  visibility: visible;
+}
+
+.container.active .form-box.login {
+  visibility: hidden;
+}
+
+.form-box.register {
+  visibility: hidden;
+}
+
+/* ↓↓↓ ADD THIS NEW BLOCK HERE ↓↓↓ */
+.form-box form {
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
+}
+
+.form-box.register form {
+  opacity: 0;
+}
+
+.container.active .form-box.login form {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+.container.active .form-box.register form {
+  opacity: 1;
+  transition-delay: .3s;
+}
+
+/* ↑↑↑ END NEW BLOCK ↑↑↑ */
+
+form {
+  width: 100%;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 2.1rem;
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  margin: -.4rem 0;
+}
+
+p.errors {
+  color: #ff343e;
+  margin: 10px 0 -12px 8px;
+  text-align: start;
+  font-size: .9rem;
+}
+
+.input-box input {
+  width: 100%;
+  padding: .6rem .8rem;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  border-radius: .5rem;
+  background-color: var(--second-layer-background);
+  color: var(--foreground-main-color);
+  transition: all ease-in-out .3s;
+}
+
+.input-box label {
+  font-size: 1.2rem;
+  color: var(--main-neutral-color);
+  position: relative;
+  top: 2.1rem;
+  left: .6rem;
+  transition: all ease-in-out .3s;
+}
+
+input.focus {
+  border: 2px solid var(--brand-main-color);
+  background-color: var(--first-layer-background)
+}
+
+.input-box label.focus {
+  font-size: .9rem;
+  top: .6rem;
+  background-color: var(--first-layer-background);
+  padding: 0 5px;
+  color: var(--brand-main-color);
+}
+
+#hide-password-login {
+  display: none;
+  position: absolute;
+  right: .7rem;
+  cursor: pointer;
+}
+
+#show-password-login {
+  position: absolute;
+  right: .7rem;
+  cursor: pointer;
+}
+
+#hide-password-register {
+  display: none;
+  position: absolute;
+  right: .7rem;
+  cursor: pointer;
+}
+
+#show-password-register {
+  position: absolute;
+  right: .7rem;
+  cursor: pointer;
+}
+
+#hide-password-conf-register {
+  display: none;
+  position: absolute;
+  right: .7rem;
+  cursor: pointer;
+}
+
+#show-password-conf-register {
+  position: absolute;
+  right: .7rem;
+  cursor: pointer;
+}
+
+.btn {
+  width: 100%;
+  position: relative;
+  top: 1.3rem;
+  height: 2.5rem;
+  border: none;
+  background-color: var(--brand-main-color);
+  font-size: 1.2rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  color: var(--background-main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.mini-box {
+  display: flex;
+  align-items: center;
+}
+
+.forgot-link {
+  color: var(--brand-main-color);
+  position: relative;
+  right: -13.8rem;
+  top: .8rem;
+  cursor: pointer;
+}
+
+.seperator {
+  border-bottom: 1px solid var(--foreground-secondary-color);
+  width: 100%;
+  position: relative;
+  top: 2.4rem;
+}
+
+.or {
+  position: relative;
+  top: calc(2.4rem - 0.7em);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0 .6rem;
+  background-color: var(--first-layer-background);
+  color: var(--foreground-secondary-color);
+  text-align: center;
+}
+
+.continue-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  padding: .5rem;
+  width: 100%;
+  position: relative;
+  top: 2rem;
+  border: 2px solid var(--brand-main-color);
+  color: var(--foreground-main-color);
+  text-decoration: none;
+  border-radius: .7rem;
+  cursor: pointer;
+  transition: all ease-in-out .20s;
+}
+
+.continue-google:hover {
+  background-color: rgba(131, 131, 131, .14);
+}
+
+.toggle-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.container.animating .form-box {
+  z-index: 1;
+}
+
+.container.animating .toggle-box {
+  z-index: 4;
+}
+
+.toggle-box::before {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 100%;
+  background-color: var(--brand-main-color);
+  left: -250%;
+  border-radius: 4rem;
+  transition: all ease-in-out .8s;
+}
+
+.container.active .toggle-box::before {
+  left: 50%;
+}
+
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: .6s ease-in-out;
+}
+
+.toggle-panel.toggle-right {
+  right: -50%;
+}
+
+.container.active .toggle-panel.toggle-right {
+  right: 0;
+  /* transition-delay: .3s; */
+}
+
+/* .toggle-panel.toggle-left {
+  right: 0;
+  transition-delay: .8s;
+} */
+
+.container.active .toggle-panel.toggle-left {
+  left: -50%;
+  transition-delay: .6s;
+}
+
+.toggle-panel p {
+  margin-bottom: .4rem;
+}
+
+.toggle-panel .btn {
+  width: 8rem;
+  border: 2px solid var(--foreground-main-color);
+  background: transparent;
+  color: var(--foreground-main-color);
+}
+
+.greet {
+  margin-bottom: 1rem;
+  margin-top: -2rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--foreground-main-color);
+  -webkit-box-shadow: 0 0 0px 1000px var(--second-layer-background) inset;
+  transition: all 5000s ease-in-out 0s;
+}
+
+@keyframes onAutoFillStart {
+  from {}
+
+  to {}
+}
+
+@keyframes onAutoFillCancel {
+  from {}
+
+  to {}
+}
+
+input:-webkit-autofill {
+  animation-name: onAutoFillStart;
+}
+
+input:not(:-webkit-autofill) {
+  animation-name: onAutoFillCancel;
+}
+
+@media screen and (max-width: 860px) {
+  .container {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 105dvh;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .form-box {
+    width: 100%;
+    height: 70%;
+    bottom: 0;
+    padding: .8rem;
+  }
+
+  .container.active .form-box {
+    margin: 0 0;
+    bottom: 30%;
+    right: 0;
+  }
+
+  .toggle-box::before {
+    left: 0;
+    top: -270%;
+    width: 100%;
+    height: 300%;
+    border-radius: 20vw;
+  }
+
+  .container.active .toggle-box::before {
+    left: 0;
+    top: 70%;
+  }
+
+  .toggle-panel {
+    width: 100%;
+    height: 30%;
+  }
+
+  .toggle-panel.toggle-left {
+    top: 0;
+  }
+
+  .container.active .toggle-panel.toggle-left {
+    left: 0;
+    top: -30%;
+  }
+
+  .toggle-panel.toggle-right {
+    right: 0;
+    bottom: -30%;
+  }
+
+  .container.active .toggle-panel.toggle-right {
+    bottom: 0;
+
+  }
+}

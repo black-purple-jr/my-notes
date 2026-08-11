@@ -1,0 +1,22 @@
+@import "./root.css";
+
+.spinner {
+  justify-content: center;
+  display: none;
+}
+
+.spinner::after {
+  content: "";
+  height: 15px;
+  width: 15px;
+  border: 2px solid var(--background-main-color);
+  border-bottom-color: var(--brand-main-color);
+  border-radius: 50%;
+  animation: spinning 1s linear infinite;
+}
+
+@keyframes spinning {
+  to {
+    transform: rotate(1turn)
+  }
+}

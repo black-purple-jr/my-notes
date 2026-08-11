@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Geist", sans-serif;
+  src: url("../assets/fonts/Geist/Geist-VariableFont_wght.ttf");
+}
+
+:root {
+  --background-main-color: #121212;
+  --first-layer-background: #1e1e1e;
+  --second-layer-background: #303030;
+  --drawer-background: #1e1e1ef7;
+  --foreground-main-color: #dddddd;
+  --foreground-secondary-color: #a0a0a0;
+  --foreground-third-color: #606060;
+  --main-neutral-color: #838383;
+  --border-color: #2a2a2a;
+  --brand-main-color: #5b5eeb;
+  --default-font: "Geist", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--default-font);
+  -webkit-user-select: none;
+  user-select: none;
+}
