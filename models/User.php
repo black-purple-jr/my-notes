@@ -55,8 +55,8 @@ class User extends DB
     $query = "INSERT INTO users (user_id, user_email, username) VALUES (:user_id, :user_email, :username)";
 
     $statement = $pdo->prepare($query);
-    $statement->bindParam(":user_email", $email);
-    $statement->bindParam(":user_id", $id);
+    $statement->bindParam(":user_email", $user_email);
+    $statement->bindParam(":user_id", $user_id);
     $statement->bindParam(":username", $username);
     $result = $statement->execute();
 
@@ -68,11 +68,12 @@ class User extends DB
   public static function setProfilePicture(string $id, string $pfp, string $mime)
   {
     $pdo = self::connect();
-    $query = "INSERT INTO users (profile_picture, profile_picture_mime) VALUES (:pfp, :pfp_mime)";
+    $query = "UPDATE users SET profile_picture = :pfp, profile_picture_mime = :mime WHERE user_id = :id";
 
     $statement = $pdo->prepare($query);
+    $statement->bindParam(":id", $id);
     $statement->bindParam(":pfp", $pfp);
-    $statement->bindParam(":pfp_mime", $pfp_mime);
+    $statement->bindParam(":mime", $mime);
     $result = $statement->execute();
 
     return $result;

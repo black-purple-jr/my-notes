@@ -43,7 +43,7 @@ $user = User::getUserById($current_user_id);
           <path d="M9.5 12H16" />
           <path d="M9.5 16H14" />
         </svg>
-        My Notes - <?php echo $user["username"]; ?>
+        My Notes
       </h1>
     </a>
     <a href="../" class="back">
@@ -62,7 +62,7 @@ $user = User::getUserById($current_user_id);
           <div class="pfp">
             <?php if ($user['profile_picture']): ?>
               <img src="data:<?= htmlspecialchars($user['profile_picture_mime']) ?>;base64,<?= $user['profile_picture'] ?>"
-                alt="Profile picture" width="150" height="150">
+                alt="Profile picture" width="150" height="150" style="border-radius: 100px;">
             <?php else: ?>
               <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-icon lucide-circle-user" id="profile">
                 <circle cx="12" cy="12" r="10" />

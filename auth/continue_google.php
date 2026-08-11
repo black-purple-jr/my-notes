@@ -9,7 +9,7 @@ $client = new Google\Client;
 
 $client->setClientId($_ENV["GOOGLE_OAUTH_CLIENT_ID"]);
 $client->setClientSecret($_ENV["GOOGLE_OAUTH_CLIENT_SECRET"]);
-$client->setRedirectUri(BASE_URL);
+$client->setRedirectUri(BASE_URL."auth/redirect.php");
 
 $client->addScope("email");
 $client->addScope("profile");
