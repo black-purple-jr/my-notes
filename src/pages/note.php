@@ -1,11 +1,11 @@
 <?php
-require "../config/session.php";
-require "../config/router.php";
-require "../models/Note.php";
-require "../models/User.php";
+require "../../config/session.php";
+require "../../config/router.php";
+require "../../models/Note.php";
+require "../../models/User.php";
 
 if (!isset($_SESSION["current_user_id"])) {
-  header("Location: ./auth/auth.php");
+  header("Location: ../../auth/auth.php");
   exit;
 }
 
@@ -13,7 +13,7 @@ $current_user_id = $_SESSION["current_user_id"];
 $check = User::userExists($current_user_id);
 
 if (!$check) {
-  header("Location: ./auth/authentication_form.php");
+  header("Location: ../../auth/auth.php");
   exit;
 }
 
@@ -65,9 +65,9 @@ if (isset($_POST["new-title"]) || isset($_POST["new-content"])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $note["note_title"] ?> - My Notes</title>
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="stylesheet" href="./css/note.css">
-  <script src="./js/note.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/note.css">
+  <script src="../js/note.js" defer></script>
 </head>
 
 <body>

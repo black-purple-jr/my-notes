@@ -15,6 +15,7 @@
   --border-color: #2a2a2a;
   --brand-main-color: #5b5eeb;
   --default-font: "Geist", sans-serif;
+  --danger-color: #cf272f;
 }
 
 * {
@@ -24,4 +25,6 @@
   font-family: var(--default-font);
   -webkit-user-select: none;
   user-select: none;
+  scrollbar-gutter: stable;
 }
+

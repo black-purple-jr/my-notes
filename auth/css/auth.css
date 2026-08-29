@@ -112,7 +112,7 @@ p.errors {
   font-size: 1.2rem;
   color: var(--main-neutral-color);
   position: relative;
-  top: 2.1rem;
+  top: 2rem;
   left: .6rem;
   transition: all ease-in-out .3s;
 }

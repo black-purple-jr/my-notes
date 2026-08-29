@@ -178,7 +178,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php endif; ?>
         <a href="./forgot_password.php" class="forgot-link">forgot password?</a>
         <button type="submit" name="login" class="btn login-button">
-          <div class="spinner"></div>
+          <div class="spinner spinner1"></div>
           <p>Connect to your account</p>
         </button>
         <div class="seperator"></div>
@@ -268,7 +268,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           <p class="errors"><?php echo htmlspecialchars($sign_up_errors["password_confirmation"]) ?></p>
         <?php endif; ?>
         <div class="btn-container">
-          <button type="submit" name="sign_up" class="btn">Create your account</button>
+          <button type="submit" name="sign_up" class="btn register-button">
+            <div class="spinner spinner2"></div>
+            <p>Create your account</p>
+          </button>
           <div class="seperator"></div>
           <p class="or">or</p>
           <a href="<?php echo htmlspecialchars($url); ?>" class="continue-google" name="google">

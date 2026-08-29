@@ -24,19 +24,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const hidePasswordConfRegister = document.getElementById('hide-password-conf-register');
 
   const container = document.querySelector(".container");
+  const loginForm = document.querySelector(".login");
+  const registerForm = document.querySelector(".register");
   const registerButton = document.querySelector(".register-btn");
   const loginButton = document.querySelector(".login-btn");
+  
+  loginForm.addEventListener("keydown", event => {
+    if (event.key === "Enter") event.preventDefault();
+  })
 
-  const spinner = document.querySelector(".spinner");
+  registerForm.addEventListener("keydown", event => {
+    if (event.key === "Enter") event.preventDefault();
+  })
+
   const login = document.querySelector(".login-button");
+  const loginSpinner = login.querySelector(".spinner1");
   const loginText = document.querySelector(".login p");
 
-
   login.onclick = () => {
-    spinner.style.display = "flex";
-    loginText.textContent = "Connecting ...";
-    login.style.pointerEvents = "none"
+    if (passwordInputLogin.value !== "" && emailInputLogin.value !== ""){
+      loginSpinner.style.display = "flex";
+      loginText.textContent = "Connecting ...";
+      login.style.pointerEvents = "none"
+    }
+  }
 
+  const register = document.querySelector(".register-button");
+  const registerSpinner = register.querySelector(".spinner2");
+  const registerText = document.querySelector(".register-button p");
+
+  register.onclick = () => {
+    if (passwordConfInputRegister.value !== "" && passwordInputRegister.value !== "" && emailInputRegister.value !== "" && usernameInputRegister.value !== ""){
+      registerSpinner.style.display = "flex";
+      registerText.textContent = "Registering ...";
+      register.style.pointerEvents = "none"
+    }
   }
 
   const savedState = localStorage.getItem("authFormState");

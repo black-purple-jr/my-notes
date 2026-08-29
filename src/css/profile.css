@@ -1,25 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap');
-
-:root {
-  --background-main-color: #121212;
-  --first-layer-background: #1e1e1e;
-  --second-layer-background: #303030;
-  --drawer-background: #1e1e1ef7;
-  --foreground-main-color: #dddddd;
-  --foreground-secondary-color: #a0a0a0;
-  --foreground-third-color: #606060;
-  --border-color: #2a2a2a;
-  --brand-main-color: #5b5eeb;
-  --default-font: "Geist", sans-serif;
-  --danger-color: #cf272f;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: var(--default-font);
-}
+@import "../../styles/root.css";
 
 html {
   scroll-behavior: smooth;
@@ -193,9 +172,6 @@ form button[type="submit"] {
 }
 
 .actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
   width: 100%;
 }
 
@@ -205,11 +181,12 @@ form button[type="submit"] {
   justify-content: center;
   gap: 10px;
   color: var(--danger-color);
+  width: max-content;
   text-decoration: none;
   border: 1px solid var(--danger-color);
   border-radius: 8px;
   flex: 1;
-  padding: 8px 0;
+  padding: 8px 18px;
   font-size: 1.1em;
   transition: all ease-in-out .25s;
 }

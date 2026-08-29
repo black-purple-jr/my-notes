@@ -1,9 +1,9 @@
 <?php
-require "../config/session.php";
-require "../models/User.php";
+require "../../config/session.php";
+require "../../models/User.php";
 
 if (!isset($_SESSION["current_user_id"])) {
-  header("Location: ../auth/auth.php");
+  header("Location: ../../auth/auth.php");
   exit;
 }
 
@@ -11,7 +11,7 @@ $current_user_id = $_SESSION["current_user_id"];
 $check = User::userExists($current_user_id);
 
 if (!$check) {
-  header("Location: ../auth/auth.php");
+  header("Location: ../../auth/auth.php");
   exit;
 }
 
@@ -25,13 +25,13 @@ $user = User::getUserById($current_user_id);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile - My Notes</title>
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
-  <link rel="stylesheet" href="../src/css/profile.css" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
+  <link rel="stylesheet" href="../css/profile.css" />
 </head>
 
 <body>
   <header>
-    <a href="../">
+    <a href="../../">
       <h1>
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#5b5eeb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-notebook-text-icon lucide-notebook-text">
           <path d="M2 6h4" />
@@ -46,7 +46,7 @@ $user = User::getUserById($current_user_id);
         My Notes
       </h1>
     </a>
-    <a href="../" class="back">
+    <a href="../../" class="back">
       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-left-icon lucide-move-left">
         <path d="M6 8L2 12L6 16" />
         <path d="M2 12H22" />
@@ -56,7 +56,7 @@ $user = User::getUserById($current_user_id);
   </header>
   <main>
     <div class="content">
-      <h2 class="title">your personal info</h2>
+      <h2 class="title">personal info</h2>
       <div class="general-info">
         <div class="pic">
           <div class="pfp">
@@ -77,7 +77,7 @@ $user = User::getUserById($current_user_id);
           <div class="email"><?php echo htmlspecialchars($user["user_email"]); ?></div>
         </div>
       </div>
-      <h2 class="title">update your personal info</h2>
+      <h2 class="title">update personal info</h2>
       <form action="" method="post" class="box">
         <div class="row">
           <label for="pfpInput">Profile picture</label>
@@ -86,9 +86,6 @@ $user = User::getUserById($current_user_id);
           <label for="usernameInput">Username</label>
           <input type="text" id="usernameInput" placeholder="Enter your new username" value="<?php echo htmlspecialchars($user["username"]); ?>">
 
-          <label for="emailInput">E-mail</label>
-          <input type="email" id="emailInput" placeholder="Enter your new Email" value="<?php echo htmlspecialchars($user["user_email"]); ?>">
-
           <label for="passwordInput">New password</label>
           <input type="password" id="passwordInput" name="new_pwd" placeholder="Enter your new password" />
 
@@ -96,14 +93,14 @@ $user = User::getUserById($current_user_id);
           <input type="password" id="passwordConfirmationInput" name="confirm_new_pwd" placeholder="Confirm your new password" />
         </div>
         <div class="row">
-          <button type="submit">Update you profile</button>
+          <button type="submit">Update your profile</button>
         </div>
       </form>
       <h2 class="title">danger zone</h2>
       <div class="box">
         <div class="actions">
-          <a href="../auth/logout.php">
-            Delete your account
+          <a href="../../auth/logout.php">
+            Delete permanently
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cf272f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2">
               <path d="M10 11v6" />
               <path d="M14 11v6" />

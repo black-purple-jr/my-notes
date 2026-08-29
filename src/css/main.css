@@ -350,7 +350,7 @@ input:-webkit-autofill:focus {
 }
 
 .new-note form button {
-  padding: .7rem 1.3rem;
+  padding: .5rem;
   border-radius: .4rem;
   font-weight: 500;
   font-size: 1rem;

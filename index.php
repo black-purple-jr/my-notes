@@ -6,13 +6,13 @@ require "./models/Note.php";
 require "./models/User.php";
 require "./vendor/autoload.php";
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
 if (!isset($_SESSION["current_user_id"])) {
   header("Location: ./auth/auth.php");
   exit;
 }
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 $current_user_id = $_SESSION["current_user_id"];
 $check = User::userExists($current_user_id);
@@ -22,6 +22,8 @@ if (!$check) {
   header("Location: ./auth/auth.php");
   exit;
 }
+
+
 
 if (isset($_POST["note-title"]) && isset($_POST["note-content"])) {
   $note_title = $_POST["note-title"];
@@ -98,9 +100,9 @@ if (isset($_POST["note-title"]) && isset($_POST["note-content"])) {
         </button>
         <?php if ($user['profile_picture']): ?>
           <img src="data:<?= htmlspecialchars($user['profile_picture_mime']) ?>;base64,<?= $user['profile_picture'] ?>"
-            alt="Profile picture" width="34" height="34" style="border-radius: 100px;" id="profile">
+            alt="Profile picture" width="28" height="28" style="border-radius: 100px;" id="profile">
         <?php else: ?>
-          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-icon lucide-circle-user" id="profile" title="<?php echo htmlspecialchars($user["username"]); ?>">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-icon lucide-circle-user" id="profile" title="<?php echo htmlspecialchars($user["username"]); ?>">
             <circle cx="12" cy="12" r="10" />
             <circle cx="12" cy="10" r="3" />
             <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" />
@@ -109,7 +111,7 @@ if (isset($_POST["note-title"]) && isset($_POST["note-content"])) {
       </div>
     </header>
     <div class="dropdown-menu">
-      <a href="./src/profile.php">
+      <a href="./src/pages/profile.php">
         <div class="user">
           <div class="user-pfp">
             <?php if ($user['profile_picture']): ?>
@@ -134,7 +136,7 @@ if (isset($_POST["note-title"]) && isset($_POST["note-content"])) {
         </div>
       </a>
       <div class="options">
-        <a href="./src/profile.php" class="option">
+        <a href="./src/pages/profile.php" class="option">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand-main-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-user-icon lucide-square-user">
             <rect width="18" height="18" x="3" y="3" rx="2" />
             <circle cx="12" cy="10" r="3" />
@@ -201,7 +203,7 @@ if (isset($_POST["note-title"]) && isset($_POST["note-content"])) {
         </a>';
       }
       ?>
-      <div class="spinner"></div>
+
     </h2>
     <div class="cards-container">
       <div class="card-skeleton">

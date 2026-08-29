@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function noteCardMarkup(note) {
     return `
-      <a class="card-link" href="./src/note.php?note-id=${encodeURIComponent(note.note_id)}" id="${encodeURIComponent(note.note_id)}" title="${note.note_title}">
+      <a class="card-link" href="./src/pages/note.php?note-id=${encodeURIComponent(note.note_id)}" id="${encodeURIComponent(note.note_id)}" title="${note.note_title}">
         <div class="card" id="${note.note_id}">
           <div class="card-title">${note.note_title}</div>
           <div class="card-content">${note.note_content}</div>
