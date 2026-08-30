@@ -1,0 +1,73 @@
+services:
+
+  # ================================================
+  # PHP + Apache application
+  # ================================================
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: my-notes-app
+
+    ports:
+      - "8080:80"
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: my_notes
+      DB_USERNAME: my_notes_user
+      DB_PASSWORD: my_notes_password
+
+    restart: unless-stopped
+
+
+  # ================================================
+  # MySQL database
+  # ================================================
+  db:
+    image: mysql:8.0
+
+    container_name: my-notes-db
+
+    environment:
+      MYSQL_DATABASE: my_notes
+      MYSQL_USER: my_notes_user
+      MYSQL_PASSWORD: my_notes_password
+      MYSQL_ROOT_PASSWORD: root_password
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-u",
+          "root",
+          "-proot_password"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+    restart: unless-stopped
+
+
+# ================================================
+# Persistent MySQL storage
+# ================================================
+volumes:
+  mysql_data:

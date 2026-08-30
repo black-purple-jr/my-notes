@@ -7,8 +7,8 @@ This is a full-stack notes taking web app built with HTML, CSS, JS and PHP. I pu
 ## Features
 
 * Secure Login / sign up system using Google.
-  - using email and password
-  - using your Google account
+  - Email and password
+  - Google account
 * Mailing services for account activation and password reset
 * CRUD operations for notes handling.
 
