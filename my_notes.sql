@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2026 at 03:11 AM
+-- Generation Time: Aug 31, 2026 at 05:14 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -26,9 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `notes`
 --
-
-CREATE DATABASE `my_notes`;
-USE `my_notes`;
 
 CREATE TABLE `notes` (
   `note_id` varchar(50) NOT NULL,
