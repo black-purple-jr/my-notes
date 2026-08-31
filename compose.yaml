@@ -39,7 +39,7 @@ services:
       MYSQL_DATABASE: my_notes
       MYSQL_USER: my_notes_user
       MYSQL_PASSWORD: my_notes_password
-      MYSQL_ROOT_PASSWORD: 
+      MYSQL_ROOT_PASSWORD: root_password
 
     ports:
       - "3307:3306"

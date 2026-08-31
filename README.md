@@ -34,4 +34,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-* Abdellah DAKIR ALLAH - [black-purple-jr](https://github.com/black-purple-jr)
+* Abdellah DAKIR ALLAH - a.k.a [black-purple-jr](https://github.com/black-purple-jr) on Github and some other platforms
