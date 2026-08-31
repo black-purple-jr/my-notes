@@ -46,6 +46,7 @@ services:
 
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./my_notes.sql:/docker-entrypoint-initdb.d/my_notes.sql:ro
 
     healthcheck:
       test:
