@@ -12,13 +12,11 @@ This is a full-stack notes taking web app built with HTML, CSS, JS and PHP. I pu
 * Mailing services for account activation and password reset
 * CRUD operations for notes handling.
 
-## Tech Stack
+## Technologie Used
 
-- HTML
-- CSS
-- PHP
-- MySQL
-- JavaScript
+* HTML, CSS and JS for the client side.
+* PHP for the server side.
+* MySQL for data handling.
 
 ## Packages
 
