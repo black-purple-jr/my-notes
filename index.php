@@ -98,8 +98,8 @@ if (isset($_POST["note-title"]) && isset($_POST["note-content"])) {
           </svg>
           <p>New Note</p>
         </button>
-        <?php if ($user['profile_picture']): ?>
-          <img src="data:<?= htmlspecialchars($user['profile_picture_mime']) ?>;base64,<?= base64_encode($user['profile_picture']) ?>"
+        <?php if ($user['user_profile_picture']): ?>
+          <img src="data:<?= htmlspecialchars("image/jpeg") ?>;base64,<?= $user['user_profile_picture'] ?>"
             alt="Profile picture" width="28" height="28" style="border-radius: 100px;" id="profile">
         <?php else: ?>
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-icon lucide-circle-user" id="profile" title="<?php echo htmlspecialchars($user["username"]); ?>">
@@ -114,8 +114,8 @@ if (isset($_POST["note-title"]) && isset($_POST["note-content"])) {
       <a href="./src/pages/profile.php">
         <div class="user">
           <div class="user-pfp">
-            <?php if ($user['profile_picture']): ?>
-              <img src="data:<?= htmlspecialchars($user['profile_picture_mime']) ?>;base64,<?= $user['profile_picture'] ?>"
+            <?php if ($user['user_profile_picture']): ?>
+              <img src="data:<?= htmlspecialchars("image/jpeg") ?>;base64,<?= $user['user_profile_picture'] ?>"
                 alt="Profile picture" width="40" height="40" style="border-radius: 100px;">
             <?php else: ?>
               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-icon lucide-circle-user" id="profile">
