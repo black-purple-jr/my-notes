@@ -99,7 +99,7 @@ if (isset($_POST["note-title"]) && isset($_POST["note-content"])) {
           <p>New Note</p>
         </button>
         <?php if ($user['profile_picture']): ?>
-          <img src="data:<?= htmlspecialchars($user['profile_picture_mime']) ?>;base64,<?= $user['profile_picture'] ?>"
+          <img src="data:<?= htmlspecialchars($user['profile_picture_mime']) ?>;base64,<?= base64_encode($user['profile_picture']) ?>"
             alt="Profile picture" width="28" height="28" style="border-radius: 100px;" id="profile">
         <?php else: ?>
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-icon lucide-circle-user" id="profile" title="<?php echo htmlspecialchars($user["username"]); ?>">
