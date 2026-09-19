@@ -17,6 +17,8 @@ $client->setRedirectUri(BASE_URL . "/auth/redirect.php");
 $client->addScope("email");
 $client->addScope("profile");
 
+
+
 if (!isset($_GET["code"])) {
   header("Location: ./auth.php");
   exit;

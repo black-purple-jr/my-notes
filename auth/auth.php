@@ -21,6 +21,8 @@ $client->setRedirectUri(BASE_URL . "/auth/redirect.php");
 $client->addScope("email");
 $client->addScope("profile");
 
+$client->setPrompt('select_account');
+
 $url = $client->createAuthUrl();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
