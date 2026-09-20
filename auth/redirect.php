@@ -18,7 +18,6 @@ $client->addScope("email");
 $client->addScope("profile");
 
 
-
 if (!isset($_GET["code"])) {
   header("Location: ./auth.php");
   exit;

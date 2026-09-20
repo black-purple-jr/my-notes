@@ -60,8 +60,8 @@ $user = User::getUserById($current_user_id);
       <div class="general-info">
         <div class="pic">
           <div class="pfp">
-            <?php if ($user['user_profile_picture']): ?>
-              <img src="data:image/jpeg;base64,<?= $user['user_profile_picture'] ?>"
+            <?php if ($user['profile_picture']): ?>
+              <img src="data:<?= $user['profile_picture_mime'] ?>;base64,<?= $user['profile_picture'] ?>"
                 alt="Profile picture" width="150" height="150" style="border-radius: 100px;">
             <?php else: ?>
               <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-icon lucide-circle-user" id="profile">
