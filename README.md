@@ -30,6 +30,9 @@ This is a full-stack notes taking web app built with HTML, CSS, JS and PHP. I pu
 
 ![Static Badge](https://img.shields.io/badge/vlucas%2Fphpdotenv-green?color=orange) : Loads environment variables from `.env` to `$_ENV` and `$_SERVER` automagically, and optionally to `getenv()`.
 
+## License
+
+This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
 
 ## Author
 
